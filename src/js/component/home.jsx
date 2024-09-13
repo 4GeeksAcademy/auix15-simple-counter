@@ -1,26 +1,21 @@
-import React from "react";
+import React from 'react';
+import SecondsCounter from './secondsCounter';
+              //tres props: cantidad de segundos, para manejar el inicio, detener y reiniciar
+const Home = ({ totalSeconds, onStart, onStop, onReset }) => {
+  
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+  return (
+    <div>
+      <h1 className="title">Contador</h1>
+      <SecondsCounter totalSeconds={totalSeconds} />
+     <div className="button-container">
+        <button className="start-button" onClick={onStart}>Iniciar</button>
+        <button className="stop-button" onClick={onStop}>Detener</button>
+        <button className="reset-button" onClick={onReset}>Reiniciar</button>
+      </div>
+    </div>
+  );
 
-//create your first component
-const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
 };
 
 export default Home;

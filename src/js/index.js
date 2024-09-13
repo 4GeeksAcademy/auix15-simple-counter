@@ -1,13 +1,46 @@
-//import react into the bundle
-import React from "react";
+import React, { useState} from "react";
 import ReactDOM from "react-dom/client";
-
-// include your styles into the webpack bundle
 import "../styles/index.css";
-
-//import your own components
 import Home from "./component/home.jsx";
 
-//render your react application
-ReactDOM.createRoot(document.getElementById('app')).render(<Home/>);
+let intervalId;
+const root = ReactDOM.createRoot(document.getElementById('app'));
 
+const App = () => {
+  const [totalSeconds, setTotalSeconds] = useState(0);
+  const [isRunning, setIsRunning] = useState(false); // maneja si el contador está corriendo
+
+  // inicia el contador
+  const startCounter = () => {
+    if (!isRunning) { // Solo inicia si no está corriendo
+      setIsRunning(true);
+      intervalId = setInterval(() => {
+        setTotalSeconds((prev) => prev + 1);
+      }, 1000);
+    }
+  };
+
+  // detiene el contador
+  const stopCounter = () => {
+    clearInterval(intervalId);
+    setIsRunning(false);
+  };
+
+  // detiene el contantador, reinicia los segundos a 0 y camboa el estado a "no corriendo"
+  const resetCounter = () => {
+    clearInterval(intervalId);
+    setTotalSeconds(0);
+    setIsRunning(false);
+  };
+
+  return (
+    <Home
+      totalSeconds={totalSeconds} //este es el prop encargado de mostrar el tiempo transcurrido
+      onStart={startCounter}
+      onStop={stopCounter}
+      onReset={resetCounter}
+    />
+  );
+};
+
+root.render(<App />);

@@ -1,12 +1,76 @@
+body {
+  background-color: #1e1e1e;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.title {
+  color: #00ff00;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 2px 2px 10px rgba(0 255, 0, 1);
+}
 
-/* 
+.counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px;
+  }
+  
+  .counter-icon {
+    margin-right: 10px;
+    color: #00ff00;
+    font-size: 3rem;
+  }
+  
+  .counter-text {
+    font-weight: bold;
+    padding: 10 15px;
+    margin: 0 5px;
+    text-align: center;
+    font-size: 3rem;
+    color: #00ff00;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 1);
+  }
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+  .counter-separator {
+    font-size: 2rem;
+    color: white;
+    padding: 10px 5px;
+  }
 
-*/
+  .button-container {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    justify-content: center;
+    margin-top: 150px; /* Márgen superior entre el contador y el grupo de botones */
+  }
+  
+.start-button, .stop-button, .reset-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+.start-button {
+  background-color: #3dcf42;
+}
+.stop-button {
+  background-color: #f44336;
+}
+.reset-button {
+  background-color: #2196f3;
+}
